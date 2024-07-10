@@ -3,20 +3,22 @@
 @tailwind utilities;
 
 :root {
+  --background-hsl: 240, 1%, 85%;
   --foreground-hsl: 0, 0%, 12%;
-  --background-hsl: 240, 1%, 69%;
+  --foreground-hsl-dimmed: 0, 0%, 26%;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-hsl: 0, 0%, 88%;
     --background-hsl: 60, 5%, 11%;
+    --foreground-hsl: 0, 0%, 88%;
+    --foreground-hsl-dimmed: 0, 0%, 66%;
   }
 }
 
 body {
-  color: hsl(var(--foreground-hsl));
   background: hsl(var(--background-hsl));
+  color: hsl(var(--foreground-hsl));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
