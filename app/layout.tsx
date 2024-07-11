@@ -9,12 +9,12 @@ const inter = Inter({ subsets: ["latin"] });
 const openRunde = localFont({
   src: [
     {
-      path: "./_fonts/OpenRunde-Medium.woff2",
+      path: "./fonts/OpenRunde-Medium.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./_fonts/OpenRunde-Medium.woff2",
+      path: "./fonts/OpenRunde-Medium.woff2",
       weight: "500",
       style: "normal",
     },

@@ -6,6 +6,7 @@
   --background-hsl: 240, 1%, 85%;
   --foreground-hsl: 0, 0%, 12%;
   --foreground-hsl-dimmed: 0, 0%, 26%;
+  --tracking-text: -0.011em;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,6 +22,44 @@ body {
   color: hsl(var(--foreground-hsl));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.011em;
+}
+
+.about-section > * {
+  --delay: 70ms;
+  animation: fade-in 0.6s ease both;
+  animation-delay: calc(var(--delay) * var(--stagger));
+  transform-origin: 0% 0%;
+}
+
+.social-list > *,
+.social-list ul > * {
+  --delay: 70ms;
+  animation: fade-in 0.6s ease both;
+  animation-delay: calc(var(--delay) * var(--stagger));
+  transform-origin: 0% 0%;
+}
+
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0px, 10px, 5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+  }
 }
 
 @layer utilities {
