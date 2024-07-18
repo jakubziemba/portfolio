@@ -16,7 +16,11 @@ export default function LinkAnimated({
       className={tw("group relative inline-block w-max", className)}
     >
       {children}
-      <span className="absolute bottom-0 left-0 h-px w-0 bg-foreground-dimmed transition-[width] duration-[600ms] ease-out group-hover:w-full" />
+      <span
+        className={tw(
+          "absolute bottom-0 left-0 h-px w-full bg-foreground-dimmed transition-[width] duration-[600ms] ease-out lg:w-0 lg:group-hover:w-full",
+        )}
+      />
     </Link>
   );
 }
