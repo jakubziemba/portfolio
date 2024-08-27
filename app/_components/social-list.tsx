@@ -22,7 +22,7 @@ export default function SocialList() {
       >
         Let&apos;s connect!
       </h3>
-      <ul className="flex w-full flex-col gap-2 pt-4">
+      <ul className="flex w-full flex-col gap-1 pt-4">
         {LINKS.map((link, index) => (
           <li
             key={link.name}

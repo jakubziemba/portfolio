@@ -62,7 +62,7 @@ export default function LinkWithPreview({
             className="h-auto rounded-md"
             onLoad={() => setImageLoaded(true)}
           />
-          {/* <h3 className="mt-2 text-sm font-semibold">{ogMetadata.title}</h3> */}
+          <h3 className="px-2 py-2 text-sm">{ogMetadata.title}</h3>
         </span>
       );
     }
@@ -90,14 +90,13 @@ export default function LinkWithPreview({
         {showPreview && (
           <motion.span
             ref={previewRef}
-            layoutId="link-preview"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={imageLoaded ? { opacity: 1, scale: 1 } : {}}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.2 }}
+            exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.15 } }}
+            transition={{ type: "spring", bounce: 0, duration: 0.4 }}
             onAnimationStart={calculatePosition}
             className={tw(
-              "absolute left-1/2 z-[9999] hidden -translate-x-1/2 transform rounded-md bg-background shadow-lg lg:block",
+              "absolute left-1/2 z-[9999] hidden -translate-x-1/2 transform rounded-md bg-background p-1 shadow-xl shadow-gray-700/10 lg:block",
               previewPosition === "top" ? "bottom-full" : "top-full mt-2",
             )}
           >
