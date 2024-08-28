@@ -6,6 +6,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { tw } from "@/utils/tailwind";
 import useOGMetadata from "@/hooks/useOGMetadata";
+import { ExternalLink } from "lucide-react";
 
 interface LinkWithPreviewProps {
   href: string;
@@ -81,10 +82,18 @@ export default function LinkWithPreview({
         ref={linkRef}
         onMouseEnter={() => setShowPreview(true)}
         onMouseLeave={() => setShowPreview(false)}
-        className="group relative inline-block"
+        className="group relative inline-flex items-center"
       >
         {children}
-        <span className="absolute bottom-0 left-0 h-px w-full bg-foreground-dimmed transition-[width] duration-[600ms] ease-out lg:w-0 lg:group-hover:w-full" />
+        <motion.span
+          initial={{ opacity: 0 }}
+          animate={{ opacity: showPreview ? 1 : 0 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+          className="ml-1 overflow-hidden"
+        >
+          <ExternalLink size={14} className="text-foreground-dimmed" />
+        </motion.span>
+        <span className="absolute bottom-0 left-0 h-px w-full bg-foreground-dimmed transition-[width] duration-[400ms] ease-out lg:w-0 lg:group-hover:w-full" />
       </Link>
       <AnimatePresence>
         {showPreview && (

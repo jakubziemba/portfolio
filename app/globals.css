@@ -25,7 +25,7 @@ body {
   letter-spacing: -0.011em;
 }
 
-.about-section > * {
+/* .about-section > * {
   --delay: 65ms;
   animation: fade-in 0.5s ease both;
   animation-delay: calc(var(--delay) * var(--stagger));
@@ -60,7 +60,7 @@ body {
     opacity: 1;
     transform: translate3d(0px, 0px, 0px);
   }
-}
+} */
 
 @layer utilities {
   .text-balance {

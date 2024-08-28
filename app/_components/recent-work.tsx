@@ -1,4 +1,3 @@
-import LinkAnimated from "./link-animated";
 import LinkWithPreview from "./link-with-preview";
 
 export default function RecentWork() {
