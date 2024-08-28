@@ -89,7 +89,7 @@ export default function LinkWithPreview({
           initial={{ opacity: 0 }}
           animate={{ opacity: showPreview ? 1 : 0 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="ml-1 overflow-hidden"
+          className="invisible ml-1 hidden overflow-hidden lg:visible lg:inline"
         >
           <ExternalLink size={14} className="text-foreground-dimmed" />
         </motion.span>
