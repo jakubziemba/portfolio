@@ -15,7 +15,7 @@ const LINKS = [
 
 export default function SocialList() {
   return (
-    <div className="social-list pt-10">
+    <div className="social-list py-10">
       <h3 className="group relative flex w-max text-foreground-dimmed">
         Let&apos;s connect!
       </h3>

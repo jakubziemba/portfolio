@@ -18,7 +18,7 @@ export default function LinkAnimated({
       {children}
       <span
         className={tw(
-          "absolute bottom-0 left-0 h-px w-full bg-foreground-dimmed transition-[width] duration-[600ms] ease-out lg:w-0 lg:group-hover:w-full",
+          "absolute bottom-0 left-0 h-px w-full bg-foreground-dimmed transition-[width] duration-[400ms] ease-out lg:w-0 lg:group-hover:w-full",
         )}
       />
     </Link>

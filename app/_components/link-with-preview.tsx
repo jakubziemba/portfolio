@@ -18,30 +18,11 @@ export default function LinkWithPreview({
   children,
 }: LinkWithPreviewProps) {
   const [showPreview, setShowPreview] = useState(false);
-  const [previewPosition, setPreviewPosition] = useState(
-    () => "top" as "top" | "bottom",
-  );
   const [imageLoaded, setImageLoaded] = useState(false);
   const linkRef = useRef<HTMLAnchorElement>(null);
   const previewRef = useRef<HTMLSpanElement>(null);
 
   const { ogMetadata, isLoading } = useOGMetadata(href);
-
-  const calculatePosition = () => {
-    if (linkRef.current && previewRef.current) {
-      const linkRect = linkRef.current.getBoundingClientRect();
-      const previewRect = previewRef.current.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-      const spaceAbove = linkRect.top;
-      const spaceBelow = viewportHeight - linkRect.bottom;
-
-      setPreviewPosition(
-        spaceAbove > spaceBelow && spaceAbove >= previewRect.height
-          ? "top"
-          : "bottom",
-      );
-    }
-  };
 
   const previewContent = useMemo(() => {
     if (isLoading) {
@@ -88,7 +69,7 @@ export default function LinkWithPreview({
         <motion.span
           initial={{ opacity: 0 }}
           animate={{ opacity: showPreview ? 1 : 0 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
           className="invisible ml-1 hidden overflow-hidden lg:visible lg:inline"
         >
           <ExternalLink size={14} className="text-foreground-dimmed" />
@@ -103,10 +84,8 @@ export default function LinkWithPreview({
             animate={imageLoaded ? { opacity: 1, scale: 1 } : {}}
             exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.15 } }}
             transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-            onAnimationStart={calculatePosition}
             className={tw(
-              "absolute left-1/2 z-[9999] hidden -translate-x-1/2 transform rounded-md bg-background p-1 shadow-xl shadow-gray-700/10 lg:block",
-              previewPosition === "top" ? "bottom-full" : "top-full mt-2",
+              "absolute bottom-full left-1/2 z-[9999] hidden -translate-x-1/2 transform rounded-md bg-[#161615] p-1.5 lg:block",
             )}
           >
             {previewContent}
