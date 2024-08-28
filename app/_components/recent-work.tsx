@@ -10,7 +10,7 @@ export default function RecentWork() {
         </li>
         <li>
           <LinkWithPreview href="https://natimakeupik.com">
-            Natimakeupik
+            Nati Makeupik
           </LinkWithPreview>
         </li>
         <li>
