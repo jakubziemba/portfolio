@@ -15,19 +15,15 @@ const LINKS = [
 
 export default function SocialList() {
   return (
-    <div className="social-list pt-20">
-      <h3
-        className="group relative flex w-max text-foreground-dimmed"
-        style={{ "--stagger": 6 } as React.CSSProperties}
-      >
+    <div className="social-list pt-10">
+      <h3 className="group relative flex w-max text-foreground-dimmed">
         Let&apos;s connect!
       </h3>
-      <ul className="flex w-full flex-col gap-2 pt-4">
+      <ul className="flex w-full flex-col gap-1 pt-4">
         {LINKS.map((link, index) => (
           <li
             key={link.name}
             className="relative flex w-max flex-nowrap gap-4 lg:gap-10"
-            style={{ "--stagger": 7 + index } as React.CSSProperties}
           >
             <LinkAnimated
               href={link.url}
