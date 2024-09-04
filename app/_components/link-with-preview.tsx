@@ -35,7 +35,7 @@ export default function LinkWithPreview({
 
     if (ogMetadata?.ogImage) {
       return (
-        <span className="block w-[350px]">
+        <span className="block w-[350px] p-0.5">
           <Image
             src={ogMetadata.ogImage}
             alt={ogMetadata.title || "Preview"}
@@ -44,7 +44,7 @@ export default function LinkWithPreview({
             className="h-auto rounded-md"
             onLoad={() => setImageLoaded(true)}
           />
-          <h3 className="px-2 py-2 text-sm">{ogMetadata.title}</h3>
+          <h3 className="px-0.5 pt-2 text-sm">{ogMetadata.title}</h3>
         </span>
       );
     }
@@ -85,7 +85,7 @@ export default function LinkWithPreview({
             exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.15 } }}
             transition={{ type: "spring", bounce: 0, duration: 0.4 }}
             className={tw(
-              "absolute bottom-full left-1/2 z-[9999] hidden -translate-x-1/2 transform rounded-md bg-[#161615] p-1.5 lg:block",
+              "absolute bottom-full left-1/2 z-[9999] hidden -translate-x-1/2 transform rounded-md bg-[#161615] p-2 lg:block",
             )}
           >
             {previewContent}
