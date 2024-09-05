@@ -72,16 +72,22 @@ export default function SocialList() {
                     transition={{ duration: 0.25, ease: "easeOut" }}
                     className="invisible ml-1 hidden overflow-hidden transition-opacity duration-[250ms] ease-out lg:visible lg:flex lg:items-center lg:gap-2 lg:text-xs lg:leading-none lg:opacity-0 lg:group-hover:opacity-100"
                   >
-                    <AnimatePresence mode="popLayout">
+                    <AnimatePresence mode="wait">
                       <motion.span
                         key={copied ? "copied" : "default"}
                         layout
                         initial={{ scale: 0.3, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
-                        exit={{ scale: 0.3, opacity: 0 }}
+                        exit={{
+                          scale: 0.3,
+                          opacity: 0,
+                          transition: {
+                            duration: 0.15,
+                          },
+                        }}
                         transition={{
                           type: "spring",
-                          duration: 0.25,
+                          duration: 0.2,
                           bounce: 0.2,
                         }}
                       >
