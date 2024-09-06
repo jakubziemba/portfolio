@@ -4,7 +4,7 @@ import SocialList from "./_components/social-list";
 
 export default function Home() {
   return (
-    <section className="relative z-10 mx-auto max-w-screen-sm px-4 lg:px-0 lg:pt-10">
+    <section className="relative z-10 mx-auto max-w-screen-sm px-4 lg:px-0">
       <AboutSection />
       <RecentWork />
       <SocialList />

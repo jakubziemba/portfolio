@@ -14,7 +14,7 @@ const config: Config = {
         "foreground-dimmed": "hsl(var(--foreground-hsl-dimmed))",
       },
       letterSpacing: {
-        text: "-0.011em",
+        text: "-0.02em",
       },
     },
   },

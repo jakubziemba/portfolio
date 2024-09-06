@@ -40,9 +40,9 @@ export default function MouseRadialGradient(props: any) {
           background: useMotionTemplate`
                 radial-gradient(
                   750px circle at ${mouseX}px ${mouseY}px,
-                  rgba(210, 192, 192, 0.12),
-                  rgba(109, 120, 134, 0.12),
-                  transparent 70%
+                  rgba(210, 192, 192, 0.1),
+                  rgba(109, 120, 134, 0.1),
+                  transparent 80%
                 )
               `,
         }}

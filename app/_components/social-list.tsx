@@ -42,7 +42,7 @@ export default function SocialList() {
   }, [copied]);
 
   return (
-    <div className="social-list py-10">
+    <div className="social-list pt-10">
       <h3 className="flex w-max text-foreground-dimmed">Let&apos;s connect!</h3>
       <ul className="flex w-full flex-col gap-1 pt-4">
         {LINKS.map((link, index) => {
