@@ -77,15 +77,19 @@ export default function LinkWithPreview({
         className="group relative inline-flex items-center"
       >
         {children}
-        <motion.span
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isDesktop ? (showPreview ? 1 : 0) : 1 }}
-          transition={{ duration: 0.25, ease: "easeOut" }}
-          className={"ml-1"}
+        <span
+          className={tw(
+            "ml-1 opacity-0 transition-opacity duration-[250ms] ease-out motion-reduce:opacity-100",
+            isDesktop
+              ? showPreview
+                ? "opacity-100"
+                : "opacity-0"
+              : "opacity-100",
+          )}
         >
           <ExternalLink size={14} className="text-foreground-dimmed" />
-        </motion.span>
-        <span className="absolute bottom-0 left-0 h-px w-0 bg-foreground-dimmed transition-[width] duration-[400ms] ease-out lg:group-hover:w-full" />
+        </span>
+        <span className="absolute bottom-0 left-0 h-px w-0 bg-foreground-dimmed transition-[width] duration-[400ms] ease-out lg:group-hover:w-full motion-reduce:lg:group-hover:w-0" />
       </Link>
       <AnimatePresence>
         {showPreview && (

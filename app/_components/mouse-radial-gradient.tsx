@@ -41,8 +41,9 @@ export default function MouseRadialGradient(props: any) {
     <div className="absolute inset-0 -z-10 overflow-hidden">
       <motion.div
         className={tw(
-          "pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-500",
-          mounted && "lg:group-hover/body:opacity-100",
+          "pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300",
+          mounted &&
+            "lg:group-hover/body:opacity-100 motion-reduce:lg:group-hover/body:opacity-0",
         )}
         style={{
           background: useMotionTemplate`
