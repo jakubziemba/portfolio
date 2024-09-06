@@ -13,12 +13,13 @@ export default function LinkAnimated({
   return (
     <Link
       href={href}
-      className={tw("group relative inline-block w-max", className)}
+      scroll={false}
+      className={tw("group relative", className)}
     >
       {children}
       <span
         className={tw(
-          "absolute bottom-0 left-[1px] h-px w-full bg-foreground-dimmed transition-[width] duration-[400ms] ease-out lg:w-0 lg:group-hover:w-full",
+          "absolute bottom-0 left-[1px] h-px w-0 bg-foreground-dimmed transition-[width] duration-[400ms] ease-out lg:group-hover:w-full",
         )}
       />
     </Link>
