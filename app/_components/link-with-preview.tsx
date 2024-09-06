@@ -47,7 +47,9 @@ export default function LinkWithPreview({
             className="h-auto rounded-md"
             onLoad={() => setImageLoaded(true)}
           />
-          <h3 className="px-0.5 pt-2 text-sm">{ogMetadata.title}</h3>
+          <h3 className="px-0.5 pt-2 text-sm font-semibold">
+            {ogMetadata.title}
+          </h3>
         </span>
       );
     }
