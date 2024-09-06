@@ -50,7 +50,7 @@ export default function MouseRadialGradient(props: any) {
                   750px circle at ${mouseX}px ${mouseY}px,
                   rgba(210, 192, 192, 0.1),
                   rgba(109, 120, 134, 0.1),
-                  transparent 80%
+                  transparent 70%
                 )
               `,
         }}
