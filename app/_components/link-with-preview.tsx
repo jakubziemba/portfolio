@@ -79,12 +79,7 @@ export default function LinkWithPreview({
         {children}
         <span
           className={tw(
-            "ml-1 opacity-0 transition-opacity duration-[250ms] ease-out motion-reduce:opacity-100",
-            isDesktop
-              ? showPreview
-                ? "opacity-100"
-                : "opacity-0"
-              : "opacity-100",
+            "ml-1 opacity-100 transition-opacity duration-[250ms] ease-out motion-reduce:opacity-100 lg:opacity-0 lg:group-hover:opacity-100 motion-reduce:lg:group-hover:opacity-100",
           )}
         >
           <ExternalLink size={14} className="text-foreground-dimmed" />
