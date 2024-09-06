@@ -31,9 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${openRunde.className} group/body relative`}>
-        <main className="grid min-h-screen place-items-center py-8">
-          {children}
-        </main>
+        <main className="grid min-h-screen place-items-center">{children}</main>
         <MouseRadialGradient />
       </body>
     </html>
