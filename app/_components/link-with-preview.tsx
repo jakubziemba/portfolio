@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useRef, useMemo } from "react";
+import { useState, useRef, useMemo, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { tw } from "@/utils/tailwind";
 import useOGMetadata from "@/hooks/useOGMetadata";
 import { ExternalLink } from "lucide-react";
+import { useMediaQuery } from "usehooks-ts";
 
 interface LinkWithPreviewProps {
   href: string;
@@ -19,8 +20,10 @@ export default function LinkWithPreview({
 }: LinkWithPreviewProps) {
   const [showPreview, setShowPreview] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [initialLoadFinished, setInitialLoadFinished] = useState(false);
   const linkRef = useRef<HTMLAnchorElement>(null);
   const previewRef = useRef<HTMLSpanElement>(null);
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
 
   const { ogMetadata, isLoading } = useOGMetadata(href);
 
@@ -56,6 +59,13 @@ export default function LinkWithPreview({
     );
   }, [ogMetadata, isLoading]);
 
+  useEffect(() => {
+    if (!initialLoadFinished) {
+      setInitialLoadFinished(true);
+    }
+  }, []);
+
+  console.log(initialLoadFinished);
   return (
     <span className="relative inline-block">
       <Link
@@ -68,13 +78,13 @@ export default function LinkWithPreview({
         {children}
         <motion.span
           initial={{ opacity: 0 }}
-          animate={{ opacity: showPreview ? 1 : 0 }}
+          animate={{ opacity: isDesktop ? (showPreview ? 1 : 0) : 1 }}
           transition={{ duration: 0.25, ease: "easeOut" }}
-          className="invisible ml-1 hidden overflow-hidden lg:visible lg:inline"
+          className={"ml-1"}
         >
           <ExternalLink size={14} className="text-foreground-dimmed" />
         </motion.span>
-        <span className="absolute bottom-0 left-0 h-px w-full bg-foreground-dimmed transition-[width] duration-[400ms] ease-out lg:w-0 lg:group-hover:w-full" />
+        <span className="absolute bottom-0 left-0 h-px w-0 bg-foreground-dimmed transition-[width] duration-[400ms] ease-out lg:group-hover:w-full" />
       </Link>
       <AnimatePresence>
         {showPreview && (
@@ -85,7 +95,7 @@ export default function LinkWithPreview({
             exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.15 } }}
             transition={{ type: "spring", bounce: 0, duration: 0.4 }}
             className={tw(
-              "absolute bottom-full left-1/2 z-[9999] hidden -translate-x-1/2 transform rounded-md bg-[#161615] p-2 lg:block",
+              "absolute bottom-full left-1/2 z-[9999] hidden -translate-x-1/2 transform rounded-md bg-[#171717] p-2 shadow-md lg:block",
             )}
           >
             {previewContent}

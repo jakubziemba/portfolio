@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import MouseRadialGradient from "./_components/mouse-radial-gradient";
 
 const openRunde = localFont({
   src: [
@@ -29,8 +30,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={openRunde.className}>
-        <main className="py-10">{children}</main>
+      <body className={`${openRunde.className} group/body relative`}>
+        <main className="py-8">{children}</main>
+        <MouseRadialGradient />
       </body>
     </html>
   );
