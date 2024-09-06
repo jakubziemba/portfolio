@@ -12,6 +12,7 @@ export default function MouseRadialGradient(props: any) {
   useEffect(() => {
     setMounted(true);
   }, []);
+
   useEffect(() => {
     function handleMouseMove({
       clientX,
@@ -23,9 +24,16 @@ export default function MouseRadialGradient(props: any) {
       mouseX.set(clientX);
       mouseY.set(clientY);
     }
+
+    function handleMouseDown(e: MouseEvent) {
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
+    }
     window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousedown", handleMouseDown);
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mousedown", handleMouseDown);
     };
   }, [mouseX, mouseY]);
 

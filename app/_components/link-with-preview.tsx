@@ -65,7 +65,6 @@ export default function LinkWithPreview({
     }
   }, []);
 
-  console.log(initialLoadFinished);
   return (
     <span className="relative inline-block">
       <Link
