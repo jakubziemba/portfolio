@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { tw } from "@/utils/tailwind";
 import useOGMetadata from "@/hooks/useOGMetadata";
 import { ExternalLink } from "lucide-react";
-import { useMediaQuery } from "usehooks-ts";
 
 interface LinkWithPreviewProps {
   href: string;
@@ -23,7 +22,6 @@ export default function LinkWithPreview({
   const [initialLoadFinished, setInitialLoadFinished] = useState(false);
   const linkRef = useRef<HTMLAnchorElement>(null);
   const previewRef = useRef<HTMLSpanElement>(null);
-  const isDesktop = useMediaQuery("(min-width: 1024px)");
 
   const { ogMetadata, isLoading } = useOGMetadata(href);
 
@@ -47,7 +45,7 @@ export default function LinkWithPreview({
             className="h-auto rounded-md"
             onLoad={() => setImageLoaded(true)}
           />
-          <h3 className="px-0.5 pt-2 text-sm font-semibold">
+          <h3 className="px-0.5 pt-2 text-sm font-medium tracking-text">
             {ogMetadata.title}
           </h3>
         </span>

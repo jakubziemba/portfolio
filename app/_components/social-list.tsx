@@ -66,12 +66,11 @@ export default function SocialList() {
               >
                 {link.name}
                 {link.icon && (
-                  <span className="flex items-center gap-2 overflow-hidden transition-opacity duration-[250ms] ease-out lg:opacity-0 lg:group-hover:opacity-100">
+                  <span className="flex items-center gap-2 transition-opacity duration-[250ms] ease-out lg:opacity-0 lg:group-hover:opacity-100">
                     {/* TODO: reduced motion */}
                     <AnimatePresence mode="wait">
                       <motion.span
                         key={copied ? "copied" : "default"}
-                        layout
                         initial={{ scale: 0.3, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         exit={{
