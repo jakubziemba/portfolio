@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import MouseRadialGradient from "./_components/mouse-radial-gradient";
+import Script from "next/script";
 
 const openRunde = localFont({
   src: [
@@ -34,6 +35,7 @@ export default function RootLayout({
         <main className="grid min-h-screen place-items-center">{children}</main>
         <MouseRadialGradient />
       </body>
+      <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
     </html>
   );
 }
